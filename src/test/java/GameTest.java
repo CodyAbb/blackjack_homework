@@ -46,7 +46,18 @@ public class GameTest {
 
     @Test
     public void gameDecidesWinnerBasedOnScore(){
+        game.startNewGame();
+        game.dealerRound();
+        String winner = game.checkScoresForWinner();
+        assertEquals("Dave", winner);
+    }
 
+    @Test
+    public void allowPlayerToTakeCard(){
+        game.startNewGame();
+        game.playerTakeCard();
+        String winner = game.checkScoresForWinner();
+        assertEquals("Dave", winner);
     }
 
 

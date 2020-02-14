@@ -34,4 +34,26 @@ public class Game {
             dealer.addToHand(newCard);
         }
     }
+
+    public String checkScoresForWinner() {
+        if (player.getCardValueTotal() >21 || dealer.getCardValueTotal() > 21){
+            if (player.getCardValueTotal() < 21){
+                return player.getName();
+            } else {
+                return dealer.getName();
+            }
+        } else if (player.getCardValueTotal() == 21 || dealer.getCardValueTotal() == 21){
+            if (player.getCardValueTotal() == 21) {
+                return player.getName();
+            } else {
+                return dealer.getName();
+            }
+        } else {
+            if (player.getCardValueTotal() > dealer.getCardValueTotal()){
+                return player.getName();
+            } else {
+                return dealer.getName();
+            }
+        }
+    }
 }
