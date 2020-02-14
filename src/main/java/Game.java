@@ -12,7 +12,7 @@ public class Game {
 
     public void startNewGame() {
         deck.populateDeck();
-//        deck.shuffleDeck();
+        deck.shuffleDeck();
         Card firstCardForPlayer = deck.dealCard();
         Card secondCardForPlayer = deck.dealCard();
         Card firstCardForDealer = deck.dealCard();
@@ -21,5 +21,17 @@ public class Game {
         player.addToHand(secondCardForPlayer);
         dealer.addToHand(firstCardForDealer);
         dealer.addToHand(secondCardForDealer);
+    }
+
+    public void playerTakeCard() {
+        Card newCard = deck.dealCard();
+        player.addToHand(newCard);
+    }
+
+    public void dealerRound() {
+        while (dealer.getCardValueTotal() < 16){
+            Card newCard = deck.dealCard();
+            dealer.addToHand(newCard);
+        }
     }
 }

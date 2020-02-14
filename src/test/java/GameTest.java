@@ -23,11 +23,30 @@ public class GameTest {
         assertEquals(2, dealer.getHand().size());
     }
 
+//    @Test
+//    public void canGetTallyOfEachPlayer(){
+//        game.startNewGame();
+//        assertEquals(13, player.getCardValueTotal());
+//        assertEquals(7, dealer.getCardValueTotal());
+//    }
+
     @Test
-    public void canGetTallyOfEachPlayer(){
+    public void canNewCardToPlayerHand(){
         game.startNewGame();
-        assertEquals(13, player.getCardValueTotal());
-        assertEquals(7, dealer.getCardValueTotal());
+        game.playerTakeCard();
+        assertEquals(3, player.getHand().size());
+    }
+
+    @Test
+    public void dealerTakesCardWhenScoreUnder16(){
+        game.startNewGame();
+        game.dealerRound();
+        assertEquals(3, dealer.getHand().size());
+    }
+
+    @Test
+    public void gameDecidesWinnerBasedOnScore(){
+
     }
 
 
