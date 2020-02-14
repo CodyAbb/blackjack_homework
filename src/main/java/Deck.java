@@ -15,10 +15,15 @@ public class Deck {
 
     public void populateDeck(){
         for (int i = 0; i < SuitType.values().length; i++){
-            for (int j = 0; j < RankType.values().length; j++){
+            for (int j = 0; j < (RankType.values().length - 1); j++){
                 this.cards.add(new Card(SuitType.values()[i], RankType.values()[j]));
             }
         }
+//        for (Card card : this.cards) {
+//            if (card.getRank() == RankType.LOWACE){
+//                this.cards.remove(card);
+//            }
+//        }
     }
 
     public void shuffleDeck(){

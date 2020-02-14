@@ -51,14 +51,15 @@ public class GameTest {
         String winner = game.checkScoresForWinner();
         assertEquals("Dave", winner);
     }
-
-    @Test
-    public void allowPlayerToTakeCard(){
-        game.startNewGame();
-        game.playerTakeCard();
-        String winner = game.checkScoresForWinner();
-        assertEquals("Dave", winner);
-    }
+//
+//    @Test
+//    public void allowPlayerToTakeCard(){
+//        game.startNewGame();
+////        game.playerTakeCard();
+////        String winner = game.checkScoresForWinner();
+////        assertEquals("Dave", winner);
+//        assertEquals(52, );
+//    }
 
 
 }

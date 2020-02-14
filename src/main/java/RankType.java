@@ -11,7 +11,8 @@ public enum RankType {
     TEN(false),
     JACK(true),
     QUEEN(true),
-    KING(true);
+    KING(true),
+    LOWACE(false);
 
 
     private final boolean isFaceCard;

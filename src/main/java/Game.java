@@ -24,8 +24,16 @@ public class Game {
     }
 
     public void playerTakeCard() {
-        Card newCard = deck.dealCard();
-        player.addToHand(newCard);
+        Card newCard = new Card(SuitType.SPADE, RankType.ACE);
+        int currentCardTotal = player.getCardValueTotal();
+        if ((newCard.getRank() == RankType.ACE) && ((currentCardTotal += Score.getValue(newCard)) > 21)) {
+            Card alternateAceCard = new Card(SuitType.SPADE, RankType.LOWACE);
+            player.addToHand(alternateAceCard);
+        } else {
+            player.addToHand(newCard);
+        }
+
+
     }
 
     public void dealerRound() {
