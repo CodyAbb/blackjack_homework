@@ -24,7 +24,7 @@ public class Game {
     }
 
     public void playerTakeCard() {
-        Card newCard = new Card(SuitType.SPADE, RankType.ACE);
+        Card newCard = deck.dealCard();
         int currentCardTotal = player.getCardValueTotal();
         if ((newCard.getRank() == RankType.ACE) && ((currentCardTotal += Score.getValue(newCard)) > 21)) {
             Card alternateAceCard = new Card(SuitType.SPADE, RankType.LOWACE);
@@ -38,7 +38,7 @@ public class Game {
 
     public void dealerRound() {
         while (dealer.getCardValueTotal() < 16){
-            Card newCard = new Card(SuitType.SPADE, RankType.ACE);
+            Card newCard = deck.dealCard();
             int currentCardTotal = dealer.getCardValueTotal();
             if ((newCard.getRank() == RankType.ACE) && ((currentCardTotal += Score.getValue(newCard)) > 21)) {
                 Card alternateAceCard = new Card(SuitType.SPADE, RankType.LOWACE);
@@ -69,5 +69,10 @@ public class Game {
                 return dealer.getName();
             }
         }
+    }
+
+
+    public void playerTwists() {
+        playerTakeCard();
     }
 }
