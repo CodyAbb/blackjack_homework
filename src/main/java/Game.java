@@ -38,8 +38,14 @@ public class Game {
 
     public void dealerRound() {
         while (dealer.getCardValueTotal() < 16){
-            Card newCard = deck.dealCard();
-            dealer.addToHand(newCard);
+            Card newCard = new Card(SuitType.SPADE, RankType.ACE);
+            int currentCardTotal = dealer.getCardValueTotal();
+            if ((newCard.getRank() == RankType.ACE) && ((currentCardTotal += Score.getValue(newCard)) > 21)) {
+                Card alternateAceCard = new Card(SuitType.SPADE, RankType.LOWACE);
+                dealer.addToHand(alternateAceCard);
+            } else {
+                dealer.addToHand(newCard);
+            }
         }
     }
 

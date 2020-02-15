@@ -29,4 +29,15 @@ public class Player {
         }
         return total;
     }
+
+    public String displayCurrentHand(){
+        String cardsInHand = "";
+        for (Card card : this.hand){
+            cardsInHand += card.getSuit();
+            cardsInHand += " ";
+            cardsInHand += card.getRank();
+            cardsInHand += ", ";
+        }
+        return cardsInHand;
+    }
 }

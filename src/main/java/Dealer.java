@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dealer {
     private String name;
@@ -27,5 +28,28 @@ public class Dealer {
             total += Score.getValue(card);
         }
         return total;
+    }
+
+    public String displayHiddenHand(){
+        String cardsInHand = "[Hidden], ";
+        List<Card> hiddenList = this.hand.subList(1, (this.hand.size()));
+        for (Card card : hiddenList){
+            cardsInHand += card.getSuit();
+            cardsInHand += " ";
+            cardsInHand += card.getRank();
+            cardsInHand += ", ";
+        }
+        return cardsInHand;
+    }
+
+    public String displayFullHand(){
+        String cardsInHand = "";
+        for (Card card : this.hand){
+            cardsInHand += card.getSuit();
+            cardsInHand += " ";
+            cardsInHand += card.getRank();
+            cardsInHand += ", ";
+        }
+        return cardsInHand;
     }
 }

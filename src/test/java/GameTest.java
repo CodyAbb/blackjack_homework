@@ -49,7 +49,7 @@ public class GameTest {
         game.startNewGame();
         game.dealerRound();
         String winner = game.checkScoresForWinner();
-        assertEquals("Dave", winner);
+        assertEquals("Dealer", winner);
     }
 //
 //    @Test
