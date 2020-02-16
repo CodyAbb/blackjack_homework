@@ -18,83 +18,29 @@ public class Runner {
 
         System.out.println("Hey " + userName + ", the deck has been shuffled");
         System.out.println("The dealer's hand is " + dealer.displayHiddenHand());
-//        System.out.println("The dealer's hand is [hidden], " + dealerHand.get(0).getSuit() + " " + dealerHand.get(0).getRank());
         System.out.println("Your hand is " + player.displayCurrentHand());
 
+        String stickOrTwist;
         Scanner userChoiceInput = new Scanner(System.in);
         System.out.println("Would you like to stick or twist?");
-        String stickOrTwist = userChoiceInput.nextLine();
+        stickOrTwist = userChoiceInput.next();
 
-//        if (stickOrTwist == "twist") {
-//           game.playerTakeCard();
-//        } else {
-//            game.dealerRound();
-//            System.out.println("The " + game.checkScoresForWinner() + " won!");
-//            System.out.println("Your hand was " + player.displayCurrentHand());
-//            System.out.println("The dealer's hand was " + dealer.displayFullHand());
-//        }
-
-        while (stickOrTwist != "stick") {
-            if (player.getCardValueTotal() > 21){
-                game.playerTakeCard();
+        while (!stickOrTwist.equals("stick")) {
+            game.playerTakeCard();
+            if (player.getCardValueTotal() > 21) {
                 System.out.println("Your hand is " + player.displayCurrentHand());
-            } else {
                 break;
             }
+            System.out.println(player.displayCurrentHand());
+            Scanner newChoiceInput = new Scanner(System.in);
+            System.out.println("Would you like to stick or twist?");
+            stickOrTwist = newChoiceInput.next();
         }
 
         game.dealerRound();
         System.out.println("The " + game.checkScoresForWinner() + " won!");
         System.out.println("Your hand was " + player.displayCurrentHand());
         System.out.println("The dealer's hand was " + dealer.displayFullHand());
-
-//        while (stickOrTwist != "stick") {
-//            if (stickOrTwist == "twist") {
-//                game.playerTakeCard();
-//                continue;
-//            }
-//            game.dealerRound();
-//            System.out.println("The " + game.checkScoresForWinner() + " won!");
-//            System.out.println("Your hand was " + player.displayCurrentHand());
-//            System.out.println("The dealer's hand was " + dealer.displayFullHand());
-//            break;
-//        }
-
-
-//        while (stickOrTwist != "stick"){
-//            game.playerTakeCard();
-//            if (game.checkScoresForWinner() == "Dealer") {
-//                System.out.println("Your hand was " + player.displayCurrentHand());
-//                System.out.println("The dealer's hand was " + dealer.displayFullHand());
-//                System.out.println("Sorry bud, you lost!");
-//            } else {
-//                System.out.println("Your hand is " + player.displayCurrentHand());
-//                Scanner newInput = new Scanner(System.in);
-//                System.out.println("Would you like to stick or twist?");
-//                stickOrTwist = newInput.nextLine();
-//            }
-//
-////            game.dealerRound();
-////            System.out.println(game.checkScoresForWinner());
-////            System.out.println("Your hand was " + player.displayCurrentHand());
-////            System.out.println("The dealer's hand was " + dealer.displayFullHand());
-//        }
-
-//        game.dealerRound();
-//        System.out.println(game.checkScoresForWinner());
-//        System.out.println("Your hand was " + player.displayCurrentHand());
-//        System.out.println("The dealer's hand was " + dealer.displayFullHand());
-
-//        if (stickOrTwist == "stick"){
-//            game.dealerRound();
-//            System.out.println(game.checkScoresForWinner() + " won!");
-//            System.out.println("Your hand was " + player.displayCurrentHand());
-//            System.out.println("The dealer's hand was " + dealer.displayFullHand());
-//        } else {
-//            return null;
-//            }
-//
-
 
     }
 }
